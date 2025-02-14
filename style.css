@@ -1,0 +1,110 @@
+/* Romantic Background */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #ffdde1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    text-align: center;
+}
+
+/* Floating Hearts Animation */
+@keyframes float {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-100vh); opacity: 0; }
+}
+
+.background-animation {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.heart {
+    position: absolute;
+    color: red;
+    font-size: 24px;
+    animation: float 5s linear infinite;
+}
+
+/* Anniversary Card */
+.container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    position: relative;
+    z-index: 1;
+}
+
+h1 {
+    color: #ff4081;
+}
+
+.small-text {
+    font-size: 18px;
+    color: #444;
+}
+
+/* Envelope Animation */
+.envelope {
+    width: 100px;
+    height: 80px;
+    background: #ff4081;
+    position: relative;
+    margin: 20px auto;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.flap {
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    background: #ff6f91;
+    top: 0;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    transition: 0.5s;
+}
+
+.letter {
+    position: absolute;
+    top: 50%;
+    width: 90%;
+    left: 5%;
+    height: 50%;
+    background: white;
+    transform: translateY(100%);
+    transition: 0.5s;
+    opacity: 0;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    text-align: left;
+}
+
+.hidden-message {
+    display: none;
+}
+
+button {
+    background: #ff4081;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #e91e63;
+}
