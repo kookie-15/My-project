@@ -3,44 +3,210 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Anniversary, My Love ❤️</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Happy Anniversary, My Love!</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Background Animation */
+        @keyframes backgroundAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ff758c, #ff7eb3, #fad0c4);
+            background-size: 400% 400%;
+            animation: backgroundAnimation 12s ease infinite;
+            overflow: hidden;
+        }
+
+        /* Floating Hearts */
+        .hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .heart {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: rgba(255, 255, 255, 0.8);
+            clip-path: polygon(50% 0%, 100% 30%, 80% 100%, 50% 80%, 20% 100%, 0% 30%);
+            opacity: 0.7;
+            animation: float 5s linear infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0) scale(1); opacity: 0.8; }
+            100% { transform: translateY(-100vh) scale(1.5); opacity: 0; }
+        }
+
+        /* Main Container */
+        .container {
+            width: 90%;
+            max-width: 600px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 2;
+            overflow-y: auto;
+            max-height: 80vh;
+        }
+
+        /* Title */
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 32px;
+            color: #d63384;
+        }
+
+        /* Button */
+        .reveal-btn {
+            background: #d63384;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: 0.4s;
+            box-shadow: 0 0 15px rgba(214, 51, 132, 0.5);
+        }
+
+        .reveal-btn:hover {
+            background: #b02e6f;
+            box-shadow: 0 0 25px rgba(214, 51, 132, 1);
+        }
+
+        /* Hidden Message */
+        .hidden-message {
+            display: none;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #444;
+            text-align: justify;
+            line-height: 1.6;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        /* Typewriter Effect */
+        .message-text {
+            white-space: pre-line;
+            overflow: hidden;
+            border-right: 2px solid transparent;
+            display: inline-block;
+        }
+
+        /* Background Music */
+        audio {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            max-width: 250px;
+        }
+
+        /* Responsive Adjustments */
+        @media screen and (max-width: 600px) {
+            body { padding: 20px; }
+            .container { padding: 20px; }
+            h1 { font-size: 26px; }
+            .reveal-btn { font-size: 14px; padding: 10px; }
+            .hidden-message { font-size: 13px; }
+            .heart { width: 10px; height: 10px; }
+        }
+    </style>
 </head>
 <body>
 
-    <div class="background-animation"></div>
+    <!-- Floating Hearts Effect -->
+    <div class="hearts"></div>
 
     <div class="container">
-        <h1>Happy 1st Anniversary, My Love! ❤️</h1>
-        <p class="small-text">Click the envelope to read my letter 💌</p>
-
-        <div class="envelope" onclick="openLetter()">
-            <div class="flap"></div>
-            <div class="letter">
-                <p class="hidden-message">
-                    My Love ❤️<br><br>
-                    A year ago, a simple conversation on Boo changed my life forever. Who knew a random chat would turn into something so deep and beautiful? Falling in love with you was the easiest thing—I don’t even know when it happened, but somewhere between our late-night talks and your sweet words, my heart became yours.<br><br>
-
-                    Even with the miles between us, you never feel distant. You are my safe place, my happiness, and the best thing that has ever happened to me. I love your voice, your kindness, your silly jokes—even the bad ones. You make life brighter, and I wouldn’t trade this love for anything.<br><br>
-
-                    Yes, long distance is hard. I miss you in ways I can’t even put into words. Some days, the longing feels unbearable. But no matter what, you are the one I want—always. And one day, this wait will be over. One day, I won’t have to type "I miss you" anymore because you’ll be right here beside me.<br><br>
-
-                    Since I can’t be there with you today, I got you a small gift—a black mug with a <b>wolf (for your loyalty), a lion (for your strength), and a giraffe (for seeing beyond the distance, like our love).</b> Every time you use it, think of me. 💖<br><br>
-
-                    <b>Happy 1st Anniversary, my love! Here’s to many more years of love, laughter, and beautiful memories.</b><br><br>
-
-                    Forever yours, <br>
-                    <b>Baby ❤️</b>
-                </p>
-            </div>
-        </div>
-
-        <audio id="bg-music" loop>
-            <source src="music.mp3" type="audio/mpeg">
-        </audio>
-        <button onclick="playMusic()">Play Music 🎶</button>
+        <h1>Happy First Anniversary, My Love! ❤️</h1>
+        <button class="reveal-btn" onclick="showMessage()">Click to Reveal</button>
+        
+        <p class="hidden-message" id="message">
+            <span class="message-text"></span>
+        </p>
     </div>
 
-    <script src="script.js"></script>
+    <!-- Background Music -->
+    <audio id="bgMusic" loop>
+        <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        // Typewriter Effect
+        function typeWriterEffect(text, i, speed, element) {
+            if (i < text.length) {
+                element.innerHTML += text.charAt(i);
+                i++;
+                setTimeout(() => typeWriterEffect(text, i, speed, element), speed);
+            }
+        }
+
+        // Show Hidden Message
+        function showMessage() {
+            var messageElement = document.getElementById('message');
+            var textElement = document.querySelector('.message-text');
+            var music = document.getElementById('bgMusic');
+            
+            messageElement.style.display = 'block';
+            setTimeout(() => { messageElement.style.opacity = '1'; }, 200);
+            textElement.innerHTML = ''; // Clear previous text
+            typeWriterEffect(
+                `My Love ❤️
+
+A year ago, a simple conversation on Boo changed my life forever. Who knew a random chat would turn into something so deep and beautiful 🤭? Falling in love with you was the easiest thing—I don’t even know when it happened, but somewhere between our late-night talks and your sweet words, my heart became yours🙈.
+
+Even with the miles between us, you never feel distant. You are my safe place, my happiness, and the best thing that has ever happened to me💖. I love your voice, your kindness, your silly jokes—even the bad ones. You make life brighter, and I wouldn’t trade this love for anything😌.
+
+Yes, long distance is hard. I miss you in ways I can’t even put into words🥺. Some days, the longing feels unbearable. But no matter what, you are the one I want—always. And one day, this wait will be over. One day, I won’t have to type "I miss you" anymore because you’ll be right here beside me🥹.
+
+Since I can’t be there with you today, I got you a small gift—a black mug with a wolf (for your loyalty), a lion (for your strength), and a giraffe (for seeing beyond the distance, like our love). Every time you use it, think of me🤗.
+
+Happy 1st Anniversary, my love💝! Here’s to many more years of love, laughter, and beautiful memories❣️.
+
+Forever yours,  
+Baby ❤️`, 
+                0, 30, textElement
+            );
+
+            // Play Music
+            music.play();
+        }
+
+        // Floating Hearts Effect
+        function createHeart() {
+            const heart = document.createElement("div");
+            heart.classList.add("heart");
+            heart.style.left = Math.random() * 100 + "vw";
+            document.querySelector(".hearts").appendChild(heart);
+            setTimeout(() => heart.remove(), 5000);
+        }
+        setInterval(createHeart, 300);
+    </script>
+
 </body>
 </html>
